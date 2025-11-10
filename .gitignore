@@ -1,1 +1,17 @@
-.terraform/.terraform/
+# Ignore sensitive keys
+*.pem
+*.key
+*.crt
+
+# Terraform local files
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfplan
+
+# VS Code settings
+.vscode/
+.vscode-root/
+
+# AWS config/cache
+.aws/
