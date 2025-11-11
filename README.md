@@ -75,3 +75,31 @@ Sensitive outputs hidden
 terraform destroy -auto-approve
 ```
 <img width="1018" height="594" alt="image" src="https://github.com/user-attachments/assets/0de1e1a1-2efe-41cd-ad0c-360d506400d6" />
+
+
+##################################################################################################################################
+
+...existing code...
+# Terraform Secure WebApp on AWS
+
+## Overview
+This repository contains Terraform code to provision a simple, secure web application architecture on AWS. It creates a VPC with public/private subnets, NAT/IGW, EC2 instances (public nginx proxies and private Python backends), and an Application Load Balancer (ALB).
+
+Key files:
+- Root configuration: [main.tf](main.tf) — modules are wired up via [`module.vpc`](main.tf), [`module.ec2`](main.tf) and [`module.alb`](main.tf)
+- Provider: [providers.tf](providers.tf) — defines the [`provider "aws"`](providers.tf)
+- Output: [outputs.tf](outputs.tf) — exposes [`module.alb.public_alb_dns`](outputs.tf)
+- Modules:
+  - VPC: [modules/vpc/main.tf](modules/vpc/main.tf) (creates [`aws_vpc.main`](modules/vpc/main.tf)), outputs in [modules/vpc/outputs.tf](modules/vpc/outputs.tf)
+  - EC2: [modules/ec2/main.tf](modules/ec2/main.tf) (instances: [`aws_instance.public_proxy`](modules/ec2/main.tf), [`aws_instance.private_backend`](modules/ec2/main.tf); SGs: [`aws_security_group.public_sg`](modules/ec2/main.tf), [`aws_security_group.private_sg`](modules/ec2/main.tf)), outputs in [modules/ec2/outputs.tf](modules/ec2/outputs.tf)
+  - ALB: [modules/alb/main.tf](modules/alb/main.tf) (load balancer: [`aws_lb.public_alb`](modules/alb/main.tf), target group: [`aws_lb_target_group.public_tg`](modules/alb/main.tf)), outputs in [modules/alb/outputs.tf](modules/alb/outputs.tf)
+
+## Prerequisites
+- Terraform v1.x
+- AWS credentials configured (env or shared config)
+- Recommended: run in a disposable/test AWS account
+
+## Quickstart (deploy)
+1. Initialize:
+   ```sh
+   terraform init
