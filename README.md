@@ -73,6 +73,5 @@ Sensitive outputs hidden
 
 🧹 Cleanup
 terraform destroy -auto-approve
-
-
-#########################################################################################
+```
+<img width="1018" height="594" alt="image" src="https://github.com/user-attachments/assets/0de1e1a1-2efe-41cd-ad0c-360d506400d6" />
