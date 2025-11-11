@@ -65,6 +65,11 @@ To inspect resources created by modules, open module files:
 modules/vpc/main.tf
 modules/ec2/main.tf
 modules/alb/main.tf
+
+# Troubleshooting
+If resources fail to create due to unavailable AZs or AMI, update availability zones in modules/vpc/main.tf or AMI in main.tf.
+NAT gateway needs an Elastic IP — check modules/vpc/main.tf for the aws_eip + aws_nat_gateway setup.
+
 ---
 
 ## 🚀 How to Deploy
