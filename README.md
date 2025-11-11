@@ -46,18 +46,18 @@ cd terraform-secure-webapp
 terraform init
 terraform plan
 terraform apply -auto-approve
-
-<img width="1200" height="583" alt="image" src="https://github.com/user-attachments/assets/f5272acc-9370-4394-ba42-275c8cca0de8" />
 ```
+<img width="1200" height="583" alt="image" src="https://github.com/user-attachments/assets/f5272acc-9370-4394-ba42-275c8cca0de8" />
+
 
 ```bash
 #####################################################################################
 
 To view the app:
 terraform output public_alb_dns
-
-<img width="760" height="91" alt="image" src="https://github.com/user-attachments/assets/d3f1f3e4-41fa-4471-8363-c3477b60cf75" />
 ```
+<img width="760" height="91" alt="image" src="https://github.com/user-attachments/assets/d3f1f3e4-41fa-4471-8363-c3477b60cf75" />
+
 
 ```bash
 🔒 Security Notes
